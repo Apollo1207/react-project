@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const IntroWrapper = styled.div`
     display:flex;
@@ -48,10 +48,6 @@ export const CardPhoto = styled.img`
 export const CardTitle = styled.h4`
     font-size:20px;
     margin:15px 0 0 0;
-
-`;
-
-export const CardDescription = styled.p`
 
 `;
 

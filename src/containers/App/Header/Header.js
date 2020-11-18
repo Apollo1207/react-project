@@ -1,16 +1,15 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch, NavLink} from "react-router-dom";
-import {Container} from '../main/Global.styled';
+import {Container} from '../../../components/main/Global.styled';
 import {LinkingWrapper, LinkItem, Navbar, NavbarLogo} from './Header.styled';
-import Home from "../Home/Home";
-import Catalog from "../Catalog/Catalog";
-import Cart from "../Cart/Cart";
-import Landie from '../images/navbar_logo.png'
+import Home from "../../Home/Home";
+import Catalog from "../../Catalog/Catalog";
+import Cart from "../../Cart/Cart";
+import Landie from '../../../icons/navbar_logo.png';
 
 function Header() {
     return (
         <Container>
-
             <Router>
                 <Navbar>
                     <NavbarLogo src={Landie} alt="Landie"/>
@@ -28,7 +27,6 @@ function Header() {
                                 <LinkItem>Cart</LinkItem></NavLink>
                         </li>
                     </LinkingWrapper>
-
                 </Navbar>
                 <Switch>
                     <Route path="/cart">
@@ -42,11 +40,8 @@ function Header() {
                     </Route>
                 </Switch>
             </Router>
-
         </Container>
-
     );
 }
-
 
 export default Header;

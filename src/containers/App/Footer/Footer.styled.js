@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const FooterWrapper = styled.div`
     display:flex;
@@ -9,29 +9,19 @@ export const FooterWrapper = styled.div`
     padding:20px 0;
 `;
 
-export const FooterWrapperText = styled.div`
-
-`;
-
-
 export const FooterTitle = styled.h5`
     font-weight:700;
     font-size:16px;
     margin:0;
 `;
 
+export const FooterLogo = styled.img`
+    width:230px;
+    height:65px;
+`;
+
 export const FooterDescription = styled.p`
     font-size:12px;
-
-`;
-
-export const NavbarLogo = styled.img`
-    
-
-`;
-
-export const IconBase = styled.div`
-
 `;
 
 export const HorizontalLine = styled.hr`
