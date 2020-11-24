@@ -9,7 +9,7 @@ import {
 } from './Footer.styled';
 import Landie from '../../../icons/navbar_logo.png';
 import {FaFacebook, FaTwitter, FaLinkedin, FaGoogle} from 'react-icons/fa';
-import {Container} from '../../../components/main/Global.styled';
+import {Container} from '../../../components/Global.styled';
 
 function Footer() {
     return (

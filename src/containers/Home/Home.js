@@ -1,5 +1,5 @@
 import React from "react";
-import {Container} from "../../components/main/Global.styled";
+import {Container} from "../../components/Global.styled";
 import {
     IntroWrapper,
     IntroLogo,
@@ -10,11 +10,11 @@ import {
     Card,
     CardPhoto,
     CardTitle,
-    CardButton,
     CardButtonWrapper
 } from "./Home.styled";
 import Olympic from '../../icons/intro_logo.png';
 import Sport from '../../icons/card_photo.jpg';
+import Button from "../../components/Button/Button";
 
 function Home() {
     return (
@@ -61,7 +61,7 @@ function Home() {
                 </Card>
             </CardWrapper>
             <CardButtonWrapper>
-                <CardButton>View More</CardButton>
+                <Button buttonText="View more" backgroundColor="#454545" color="#fff" fontSize="16" padding="20px 50px" border="none" />
             </CardButtonWrapper>
         </Container>
     );

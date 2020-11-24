@@ -1,8 +1,18 @@
 import styled from 'styled-components';
+import {NavLink} from 'react-router-dom';
+import {Input} from 'semantic-ui-react';
 
 export const LinkingWrapper = styled.ul`
     display:flex;
     list-style:none;
+`;
+
+export const NavInput = styled(Input)`
+    margin-left:10%;
+`;
+
+export default styled(NavLink)`
+    text-decoration:none;
 `;
 
 export const LinkItem = styled.li`
@@ -15,7 +25,6 @@ export const LinkItem = styled.li`
     color:#000000;
     font-weight:400;
     border-radius:30px;
-    outline:none;
 `;
 
 export const Navbar = styled.nav`

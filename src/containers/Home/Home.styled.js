@@ -51,25 +51,10 @@ export const CardTitle = styled.h4`
 
 `;
 
-export const CardButton = styled.button`
-    color:#fff;
-    background:#454545;
-    padding:20px 50px;
-    margin-top:70px;
-    font-size:16px;
-    border:none;
-    outline:none;
-    border-radius:10px;
-    :hover {
-    background:#bebfc2;
-    color:#000000;
-    cursor:pointer;
-    }      
-`;
-
 export const CardButtonWrapper = styled.div`
     display:flex;
     justify-content:center;
+    padding-top:85px;
 `;
 
 
