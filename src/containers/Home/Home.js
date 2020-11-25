@@ -1,20 +1,17 @@
 import React from "react";
-import {Container} from "../../components/Global.styled";
+import {Container,CardWrapper} from "../../components/Global.styled";
 import {
     IntroWrapper,
     IntroLogo,
     IntroText,
     IntroTextTitle,
     IntroTextDescription,
-    CardWrapper,
-    Card,
-    CardPhoto,
-    CardTitle,
     CardButtonWrapper
 } from "./Home.styled";
 import Olympic from '../../icons/intro_logo.png';
-import Sport from '../../icons/card_photo.jpg';
 import Button from "../../components/Button/Button";
+import Card from "../../components/Card/Card";
+import {data} from "../../components/data";
 
 function Home() {
     return (
@@ -32,33 +29,13 @@ function Home() {
                 </IntroText>
             </IntroWrapper>
             <CardWrapper>
-                <Card>
-                    <CardPhoto src={Sport} alt="Sport"/>
-                    <CardTitle>
-                        Title
-                    </CardTitle>
-                    <p>Lorem ipsum dolor sit amet,<br/> consectetur adipisicing elit. A ad aliquam<br/> esse facere
-                        incidunt nam quibusdam repellendus <br/> Animi cum deleniti dignissimos iure iusto,
-                        minus <br/> optio quasi voluptatum.</p>
-                </Card>
-                <Card>
-                    <CardPhoto src={Sport} alt="Sport"/>
-                    <CardTitle>
-                        Title
-                    </CardTitle>
-                    <p>Lorem ipsum dolor sit amet,<br/> consectetur adipisicing elit. A ad
-                        aliquam<br/> esse facere incidunt nam quibusdam repellendus <br/> Animi cum deleniti dignissimos
-                        iure iusto, minus <br/> optio quasi voluptatum.</p>
-                </Card>
-                <Card>
-                    <CardPhoto src={Sport} alt="Sport"/>
-                    <CardTitle>
-                        Title
-                    </CardTitle>
-                    <p>Lorem ipsum dolor sit amet,<br/> consectetur adipisicing elit. A ad
-                        aliquam<br/> esse facere incidunt nam quibusdam repellendus <br/> Animi cum deleniti dignissimos
-                        iure iusto, minus <br/> optio quasi voluptatum.</p>
-                </Card>
+                {data.map(({name,location,car},idx) => (
+                    <Card
+                        name={name}
+                        location={location}
+                        car={car}
+                    />
+                ))}
             </CardWrapper>
             <CardButtonWrapper>
                 <Button buttonText="View more" backgroundColor="#454545" color="#fff" fontSize="16" padding="20px 50px" border="none" />
