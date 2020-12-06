@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const LandingButton = styled.button`
-    ${(props) => `
+  ${(props) => `
     background-color: ${props.backgroundColor};
     color: ${props.color};
     padding: ${props.padding};
@@ -9,7 +9,6 @@ export const LandingButton = styled.button`
     border: ${props.border};
     border-radius:10px;
     cursor:pointer;
- 
-    
+   
 `}
 `;

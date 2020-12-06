@@ -1,19 +1,25 @@
-import React from "react";
-import {Container,CardWrapper} from "../../components/Global.styled";
+import React, {useContext, useState} from "react";
+import {Container, CardWrapper} from "../../components/Global.styled";
 import {
-    IntroWrapper,
-    IntroLogo,
-    IntroText,
-    IntroTextTitle,
-    IntroTextDescription,
-    CardButtonWrapper
+    IntroWrapper, IntroLogo, IntroText, IntroTextTitle, IntroTextDescription, CardButtonWrapper
 } from "./Home.styled";
-import Olympic from '../../icons/intro_logo.png';
+import Olympic from '../../images/introLogo.png';
 import Button from "../../components/Button/Button";
 import Card from "../../components/Card/Card";
-import {data} from "../../components/data";
+import SportBuildContext from "../../components/SportBuildContext";
+
 
 function Home() {
+
+    const sportBuilds = useContext(SportBuildContext)
+    const [showMore, setShowMoreState] = useState({showMoreItems: false})
+
+    function handleSetShowMoreState() {
+        setShowMoreState({showMoreItems: true})
+    }
+
+    const itemsToShow = showMore.showMoreItems ? sportBuilds.length : 5
+
     return (
         <Container>
             <IntroWrapper>
@@ -29,19 +35,19 @@ function Home() {
                 </IntroText>
             </IntroWrapper>
             <CardWrapper>
-                {data.map(({name,location,car},idx) => (
-                    <Card
-                        name={name}
-                        location={location}
-                        car={car}
-                    />
-                ))}
+                {sportBuilds.slice(0, itemsToShow).map((sportBuild) => {
+                    return (
+                        <Card sportBuild={sportBuild}/>
+                    )
+                })}
             </CardWrapper>
             <CardButtonWrapper>
-                <Button buttonText="View more" backgroundColor="#454545" color="#fff" fontSize="16" padding="20px 50px" border="none" />
+                <Button buttonText="View more" backgroundColor="#454545" color="#fff" fontSize="16" padding="20px 50px"
+                        onClick={() => handleSetShowMoreState()}/>
             </CardButtonWrapper>
         </Container>
     );
+
 }
 
 export default Home;

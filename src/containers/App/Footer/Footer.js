@@ -1,17 +1,13 @@
 import React from 'react';
 import {
-    FooterWrapper,
-    FooterTitle,
-    FooterLogo,
-    FooterDescription,
-    HorizontalLine,
-    Copyright
+    FooterWrapper, FooterTitle, FooterLogo, FooterDescription, HorizontalLine, Copyright
 } from './Footer.styled';
-import Landie from '../../../icons/navbar_logo.png';
+import Landie from '../../../images/navbarLogo.png';
 import {FaFacebook, FaTwitter, FaLinkedin, FaGoogle} from 'react-icons/fa';
 import {Container} from '../../../components/Global.styled';
 
 function Footer() {
+
     return (
         <Container>
             <FooterWrapper>
@@ -35,6 +31,7 @@ function Footer() {
             <Copyright> All rights reserved © Fedyniak Illya IOT 2020 </Copyright>
         </Container>
     );
+
 }
 
 export default Footer;
