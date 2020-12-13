@@ -15,11 +15,13 @@
     "@types/react-router": "^5.1.8",
     "@types/react-router-dom": "^5.1.6",
     "antd": "^4.8.2",
+    "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-dom": "^17.0.1",
     "react-icons": "^3.11.0",
+    "react-loader-spinner": "^3.1.14",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.0",
     "react-select": "^3.1.1",
@@ -51,5 +53,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@emotion/core": "^11.0.0"
   }
 }

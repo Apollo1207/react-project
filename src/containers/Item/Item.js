@@ -1,24 +1,36 @@
-import React, {useContext} from "react";
+import React, {useEffect, useState} from "react";
 import {ItemWrapper, ItemData} from "./Item.styled"
 import Button from "../../components/Button/Button";
 import {Link, useParams} from "react-router-dom";
-import SportBuildContext from "../../components/SportBuildContext";
+import axios from "axios";
+import SportBuildPhoto from '../../images/sportBuildPhoto.jpg';
+import Loader from "../../components/Loader/Loader";
+
 
 function Item() {
 
-    const sportBuildsList = useContext(SportBuildContext)
     const {id} = useParams();
-    const sportBuildItems = sportBuildsList.find(sportBuildItem => (sportBuildItem.id === parseInt(id)));
 
+    const [sportBuild, setSportBuild] = useState();
+
+    useEffect(() => {
+        axios.get(`http://127.0.0.1:5000/sportBuilds/${id}`)
+            .then(response => setSportBuild(response.data));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    if (!sportBuild) {
+        return <Loader/>
+    }
     return (
         <ItemWrapper>
-            <img src={sportBuildItems.img} alt="Sport"/>
+            <img src={SportBuildPhoto} alt="Sport"/>
             <ItemData>
-                <h1>{sportBuildItems.sportBuildName}</h1>
-                <h3>Location: {sportBuildItems.location}</h3>
-                <h3>Number of seats: {sportBuildItems.numberOfSeats}</h3>
-                <h3>Year of foundation: {sportBuildItems.yearOfFoundation}</h3>
-                <h3>Scale of field: {sportBuildItems.scaleOfField}</h3>
+                <h1>{sportBuild.name_of_sport}</h1>
+                <h3>Location: {sportBuild.location}</h3>
+                <h3>Number of seats: {sportBuild.number_of_seats}</h3>
+                <h3>Year of foundation: {sportBuild.year_of_foundation}</h3>
+                <h3>Scale of field: {sportBuild.scale_of_field}</h3>
                 <div>
                     <Link exact to="/catalog">
                         <Button buttonText="Go Back" backgroundColor="#fff" color="#000000" fontSize="15px"

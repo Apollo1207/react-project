@@ -7,7 +7,6 @@ function Filter({name, options, filterState: [value, setValue]}) {
     return (
         <div>
             <CatalogSelect name='filter' value={value} onChange={e => setValue(e.target.value)}>
-                <option value='None'>{name}</option>
                 {options.map((thisOption) =>
                     <option key={thisOption} value={thisOption}>{thisOption}</option>
                 )}

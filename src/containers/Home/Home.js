@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Container, CardWrapper} from "../../components/Global.styled";
 import {
     IntroWrapper, IntroLogo, IntroText, IntroTextTitle, IntroTextDescription, CardButtonWrapper
@@ -6,19 +6,26 @@ import {
 import Olympic from '../../images/introLogo.png';
 import Button from "../../components/Button/Button";
 import Card from "../../components/Card/Card";
-import SportBuildContext from "../../components/SportBuildContext";
+import axios from "axios";
 
 
 function Home() {
 
-    const sportBuilds = useContext(SportBuildContext)
+    const [totalSportBuilds, setTotalSportBuilds] = useState([]);
+
+    useEffect(() => {
+        axios.get('http://127.0.0.1:5000/sportBuilds')
+            .then(response => setTotalSportBuilds(response.data));
+
+    }, []);
+
     const [showMore, setShowMoreState] = useState({showMoreItems: false})
 
     function handleSetShowMoreState() {
         setShowMoreState({showMoreItems: true})
     }
 
-    const itemsToShow = showMore.showMoreItems ? sportBuilds.length : 5
+    const itemsToShow = showMore.showMoreItems ? totalSportBuilds.length : 3
 
     return (
         <Container>
@@ -35,7 +42,7 @@ function Home() {
                 </IntroText>
             </IntroWrapper>
             <CardWrapper>
-                {sportBuilds.slice(0, itemsToShow).map((sportBuild) => {
+                {totalSportBuilds.slice(0, itemsToShow).map((sportBuild) => {
                     return (
                         <Card sportBuild={sportBuild}/>
                     )

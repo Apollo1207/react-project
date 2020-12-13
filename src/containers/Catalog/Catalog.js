@@ -1,55 +1,59 @@
-import React, {useContext, useEffect, useState} from 'react';
-import {Container, CardWrapper, CatalogSelect} from "../../components/Global.styled";
+import React, {useEffect, useState} from 'react';
+import {Container, CardWrapper} from "../../components/Global.styled";
 import {MenuBar, DropdownBar} from "./Catalog.styled";
-import {data} from "../../components/data";
-import SportBuildContext from "../../components/SportBuildContext";
 import Button from "../../components/Button/Button";
 import Card from "../../components/Card/Card";
 import Search from "../../components/Search/Search";
 import Filter from "../../components/Filter/Filter";
+import axios from "axios";
+import {getFilteredName} from "../../api";
+import Loader from "../../components/Loader/Loader";
 
 function Catalog() {
 
-    const sportBuilds = useContext(SportBuildContext)
-
-    const [items, setItems] = useState(sportBuilds.slice(0));
-    const [searchSportBuildName, setSearchSportBuildName] = useState('')
     const [filterSportBuildName, setFilterSportBuildName] = useState('None');
-    const [filterLocation, setFilterLocation] = useState('None');
+    useEffect(() => {
+        if (filterSportBuildName !== "None")
+            (async function () {
+                setTotalSportBuilds(await getFilteredName(filterSportBuildName));
+            })()
+    }, [filterSportBuildName]);
+
+
+    const [searchSportBuildName, setSearchSportBuildName] = useState('')
+    const [showedItems, setShowedItems] = useState([]);
+
+
+    const [totalSportBuilds, setTotalSportBuilds] = useState([]);
+    useEffect(() => {
+        axios.get('http://127.0.0.1:5000/sportBuilds')
+            .then(response => setTotalSportBuilds(response.data));
+
+    }, []);
+
 
     useEffect(() => {
+
         const pattern = new RegExp(searchSportBuildName, 'i');
-        let filteredItems = sportBuilds;
+        let filteredItems = totalSportBuilds;
 
         if (searchSportBuildName !== '') {
-            filteredItems = filteredItems.filter(item => (pattern.test(item.sportBuildName)));
+            filteredItems = totalSportBuilds.filter(item => (pattern.test(item.name_of_sport)));
         }
 
-        if (filterSportBuildName !== 'None') {
-            filteredItems = filteredItems.filter(item => (item.sportBuildName === filterSportBuildName));
-        }
 
-        if (filterLocation !== 'None') {
-            filteredItems = filteredItems.filter(item => (item.location === filterLocation));
-        }
-
-        setItems(filteredItems.slice(0));
-    }, [filterSportBuildName, filterLocation, searchSportBuildName, sportBuilds]);
+        setShowedItems(filteredItems.slice(0));
+    }, [searchSportBuildName, totalSportBuilds]);
+    if (showedItems.length === 0) {
+        return <Loader/>
+    }
     return (
         <Container>
             <MenuBar>
                 <Search searchState={[searchSportBuildName, setSearchSportBuildName]}/>
                 <DropdownBar>
-                    <Filter name='Sport Build Name' options={['Athletics', 'Swimming']}
+                    <Filter name='Sport Build' options={['Sport Build', 'Athletics', 'Swimming', 'Football']}
                             filterState={[filterSportBuildName, setFilterSportBuildName]}/>
-                    <Filter name='Location' options={['Bulgaria', 'Germany', 'France']}
-                            filterState={[filterLocation, setFilterLocation]}/>
-                    <CatalogSelect>
-                        {data.map(dataItem =>
-                            <option>
-                                {dataItem.optionName}</option>)
-                        }
-                    </CatalogSelect>
                 </DropdownBar>
                 <div>
                     <Button buttonText="Apply" backgroundColor="#fff" color="#000000" fontSize="15px"
@@ -58,7 +62,7 @@ function Catalog() {
                 </div>
             </MenuBar>
             <CardWrapper>
-                {items.map((sportBuild) => (
+                {showedItems.map((sportBuild) => (
                     <Card sportBuild={sportBuild}/>
                 ))}
             </CardWrapper>
