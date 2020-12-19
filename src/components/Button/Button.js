@@ -6,7 +6,7 @@ function Button(props) {
 
     return (
         <LandingButton backgroundColor={props.backgroundColor} color={props.color} fontSize={props.fontSize}
-                       padding={props.padding} border={props.border}
+                       padding={props.padding} border={props.border} height={props.height}
                        onClick={props.onClick}>{props.buttonText}</LandingButton>
     );
 

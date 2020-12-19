@@ -7,6 +7,7 @@ export const LandingButton = styled.button`
     padding: ${props.padding};
     font-size: ${props.fontSize};
     border: ${props.border};
+    height:${props.height};
     border-radius:10px;
     cursor:pointer;
    

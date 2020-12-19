@@ -1,6 +1,6 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
-import {Container} from '../../../components/Global.styled';
+import {Container} from '../../../utils/Global.styled';
 import {LinkingWrapper, LinkItem, Navbar, NavbarLogo} from './Header.styled';
 import 'semantic-ui-css/semantic.min.css';
 import NavLink from './Header.styled';

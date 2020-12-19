@@ -4,7 +4,7 @@ import {
 } from './Footer.styled';
 import Landie from '../../../images/navbarLogo.png';
 import {FaFacebook, FaTwitter, FaLinkedin, FaGoogle} from 'react-icons/fa';
-import {Container} from '../../../components/Global.styled';
+import {Container} from '../../../utils/Global.styled';
 
 function Footer() {
 

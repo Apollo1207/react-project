@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import {Container, CardWrapper} from "../../components/Global.styled";
+import {Container, CardWrapper} from "../../utils/Global.styled";
 import {MenuBar, DropdownBar} from "./Catalog.styled";
 import Button from "../../components/Button/Button";
-import Card from "../../components/Card/Card";
+import Card from "../../components/CardItem/CardItem";
 import Search from "../../components/Search/Search";
 import Filter from "../../components/Filter/Filter";
 import axios from "axios";
-import {getFilteredName} from "../../api";
+import {getFilteredName} from "../../utils/api";
 import Loader from "../../components/Loader/Loader";
 
 function Catalog() {

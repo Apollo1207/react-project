@@ -1,5 +1,5 @@
 import React from "react"
-import {CardItem} from "./Card.styled"
+import {CardItem} from "./CardItemstyled"
 import Button from "../Button/Button";
 import {Link} from "react-router-dom";
 import SportBuildPhoto from '../../images/sportBuildPhoto.jpg';

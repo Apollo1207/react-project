@@ -1,5 +1,5 @@
 import React from "react";
-import {CatalogSelect} from "../Global.styled";
+import {CatalogSelect} from "../../utils/Global.styled";
 
 
 function Filter({name, options, filterState: [value, setValue]}) {

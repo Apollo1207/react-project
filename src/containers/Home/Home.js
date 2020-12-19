@@ -1,11 +1,11 @@
 import React, {useEffect, useState} from "react";
-import {Container, CardWrapper} from "../../components/Global.styled";
+import {Container, CardWrapper} from "../../utils/Global.styled";
 import {
     IntroWrapper, IntroLogo, IntroText, IntroTextTitle, IntroTextDescription, CardButtonWrapper
 } from "./Home.styled";
 import Olympic from '../../images/introLogo.png';
 import Button from "../../components/Button/Button";
-import Card from "../../components/Card/Card";
+import Card from "../../components/CardItem/CardItem";
 import axios from "axios";
 
 
