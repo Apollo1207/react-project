@@ -6,9 +6,17 @@ export const CartItemWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 50px;
+  padding-right: 50px;
 
   div {
+    &:nth-child(1) {
+      margin: 0;
+
+      h1 {
+        padding: 0 5px 15px 50px;
+      }
+    }
+
     display: flex;
     align-items: center;
 
@@ -17,5 +25,10 @@ export const CartItemWrapper = styled.div`
     }
   }
 
+`;
+
+export const CartLogo = styled.img`
+  width: 170px;
+  margin: 0;
 `;
 

@@ -6,9 +6,9 @@ function Filter({name, options, filterState: [value, setValue]}) {
 
     return (
         <div>
-            <CatalogSelect name='filter' value={value} onChange={e => setValue(e.target.value)}>
-                {options.map((thisOption) =>
-                    <option key={thisOption} value={thisOption}>{thisOption}</option>
+            <CatalogSelect name={name} value={value} onChange={e => setValue(e.target.value)}>
+                {options.map((option) =>
+                    <option key={option} value={option}>{option}</option>
                 )}
             </CatalogSelect>
         </div>

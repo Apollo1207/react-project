@@ -1,22 +1,27 @@
 import React, {useEffect, useState} from 'react';
+import axios from "axios";
 import {Container, CardWrapper} from "../../utils/Global.styled";
 import {MenuBar, DropdownBar} from "./Catalog.styled";
 import Button from "../../components/Button/Button";
 import Card from "../../components/CardItem/CardItem";
 import Search from "../../components/Search/Search";
 import Filter from "../../components/Filter/Filter";
-import axios from "axios";
 import {getFilteredName} from "../../utils/api";
 import Loader from "../../components/Loader/Loader";
 
 function Catalog() {
-
+    const [isLoading, setIsLoading] = useState(false);
     const [filterSportBuildName, setFilterSportBuildName] = useState('None');
     useEffect(() => {
+        setIsLoading(true);
+        console.log(isLoading);
         if (filterSportBuildName !== "None")
             (async function () {
                 setTotalSportBuilds(await getFilteredName(filterSportBuildName));
             })()
+
+        setTimeout(() => setIsLoading(false), 2000)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [filterSportBuildName]);
 
 
@@ -44,9 +49,13 @@ function Catalog() {
 
         setShowedItems(filteredItems.slice(0));
     }, [searchSportBuildName, totalSportBuilds]);
+    if (isLoading === true) {
+        return <Loader/>
+    }
     if (showedItems.length === 0) {
         return <Loader/>
     }
+
     return (
         <Container>
             <MenuBar>
