@@ -9,6 +9,8 @@ import Home from "../../Home/Home";
 import Catalog from "../../Catalog/Catalog";
 import Cart from "../../Cart/Cart";
 import Item from "../../Item/Item";
+import Checkout from "../../Checkout/Checkout";
+import Success from "../../Success/Success";
 
 
 function Header() {
@@ -36,10 +38,17 @@ function Header() {
                             <NavLink exact to="/catalog/item">
                             </NavLink>
                         </li>
+
                     </LinkingWrapper>
                 </Navbar>
 
                 <Switch>
+                    <Route path="/cart/checkout/success">
+                        <Success/>
+                    </Route>
+                    <Route path="/cart/checkout">
+                        <Checkout/>
+                    </Route>
                     <Route path="/catalog/item/:id">
                         <Item/>
                     </Route>
