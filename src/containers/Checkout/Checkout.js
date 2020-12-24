@@ -63,27 +63,6 @@ function Checkout() {
                                render={error => <ErrorText>* {error}</ErrorText>}/>
                         <Input type="text" name="phoneNumber" placeholder="Phone Number"
                                render={error => <ErrorText>* {error}</ErrorText>}/>
-                        {/*<div>*/}
-                        {/*    <InputField type="text" name="firstName" placeholder="First Name"/>*/}
-                        {/*    <ErrorMessage name="firstName" render={error => <h1>why{error}</h1>}/>*/}
-                        {/*</div>*/}
-                        {/*<div>*/}
-                        {/*    <InputField type="text" name="lastName" placeholder="Last Name"/>*/}
-                        {/*    <ErrorMessage name="lastName"/>*/}
-                        {/*</div>*/}
-                        {/*<div>*/}
-                        {/*    <InputField type="text" name="address" placeholder="Address"/>*/}
-                        {/*    <ErrorMessage name="address"/>*/}
-                        {/*</div>*/}
-                        {/*<div>*/}
-                        {/*    <InputField type="email" name="email" placeholder="Email"/>*/}
-                        {/*    <ErrorMessage name="email"/>*/}
-                        {/*</div>*/}
-
-                        {/*<div>*/}
-                        {/*    <InputField type="text" name="phoneNumber" placeholder="Phone Number"/>*/}
-                        {/*    <ErrorMessage name="phoneNumber"/>*/}
-                        {/*</div>*/}
                         <Button type="submit" buttonText="Submit" backgroundColor="#454545" color="#fff" fontSize="15px"
                                 padding="13px 80px"
                                 border="1px solid"/>
