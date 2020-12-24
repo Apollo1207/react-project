@@ -1,8 +1,8 @@
 import React from "react";
-import {Form, Formik, ErrorMessage, Field} from "formik";
+import {Form, Formik} from "formik";
 import {Link, useHistory} from "react-router-dom";
 import * as Yup from "yup";
-import {CheckoutTitle, InputFieldWrapper, CheckoutButtonWrapper} from "./Checkout.styled";
+import {CheckoutTitle, InputFieldWrapper, CheckoutButtonWrapper, ErrorText} from "./Checkout.styled";
 import Input from "../../components/Input/Input";
 import Button from "../../components/Button/Button";
 
@@ -54,15 +54,15 @@ function Checkout() {
                 <Form>
                     <InputFieldWrapper>
                         <Input type="text" name="firstName" placeholder="First Name"
-                               render={error => <h1>why{error}</h1>}/>
+                               render={error => <ErrorText>* {error}</ErrorText>}/>
                         <Input type="text" name="lastName" placeholder="Last Name"
-                               render={error => <h1>why{error}</h1>}/>
+                               render={error => <ErrorText>* {error}</ErrorText>}/>
                         <Input type="text" name="address" placeholder="Address"
-                               render={error => <h1>why{error}</h1>}/>
+                               render={error => <ErrorText>* {error}</ErrorText>}/>
                         <Input type="email" name="email" placeholder="Email"
-                               render={error => <h1>why{error}</h1>}/>
+                               render={error => <ErrorText>* {error}</ErrorText>}/>
                         <Input type="text" name="phoneNumber" placeholder="Phone Number"
-                               render={error => <h1>why{error}</h1>}/>
+                               render={error => <ErrorText>* {error}</ErrorText>}/>
                         {/*<div>*/}
                         {/*    <InputField type="text" name="firstName" placeholder="First Name"/>*/}
                         {/*    <ErrorMessage name="firstName" render={error => <h1>why{error}</h1>}/>*/}
