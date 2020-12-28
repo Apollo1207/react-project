@@ -1,7 +1,7 @@
 import React from "react";
 import {useDispatch} from "react-redux";
-import {incrementCart, decrementCart} from "../../utils/store/slice/SportBuildSlice";
-import {CartItemWrapper,CartLogo} from "./CartItem.styled";
+import {incrementCart, decrementCart} from "../../utils/store/slice/sportBuildSlice";
+import {CartItemWrapper, CartLogo} from "./CartItem.styled";
 import Button from "../../components/Button/Button";
 import CartPhoto from '../../images/cartLogo.svg';
 
@@ -14,7 +14,7 @@ function CartItem(props) {
         <CartItemWrapper>
             <div>
                 <CartLogo src={CartPhoto} alt="CartLogo"/>
-            <h1>{props.item.name_of_sport}</h1>
+                <h1>{props.item.name_of_sport}</h1>
             </div>
             <div>
                 <Button buttonText="-" backgroundColor="#454545" color="#fff" fontSize="15px"

@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch, useHistory} from "react-router-dom";
 import {Container} from '../../../utils/Global.styled';
 import {LinkingWrapper, LinkItem, Navbar, NavbarLogo} from './Header.styled';
 import 'semantic-ui-css/semantic.min.css';
@@ -11,16 +11,23 @@ import Cart from "../../Cart/Cart";
 import Item from "../../Item/Item";
 import Checkout from "../../Checkout/Checkout";
 import Success from "../../Success/Success";
+import {logged} from "../../../utils/store/slice/authorizationSlice";
+import {useDispatch} from "react-redux";
+import Button from "../../../components/Button/Button";
 
 
 function Header() {
-
+    const dispatch = useDispatch();
+    const history = useHistory();
+    const signOut = () => {
+        dispatch(logged(false))
+        history.push('/login');
+    };
     return (
         <Container>
             <Router>
                 <Navbar>
                     <NavbarLogo src={Landie} alt="Landie"/>
-
                     <LinkingWrapper>
                         <li>
                             <NavLink exact to="/">
@@ -40,6 +47,9 @@ function Header() {
                         </li>
 
                     </LinkingWrapper>
+                    <Button buttonText="Sign Out" backgroundColor="#fff" color="#000000" fontSize="15px"
+                            padding="13px 20px"
+                            border="1px solid" onClick={signOut}/>
                 </Navbar>
 
                 <Switch>

@@ -6,7 +6,7 @@ import axios from "axios";
 import SportBuildPhoto from '../../images/sportBuildPhoto.jpg';
 import Loader from "../../components/Loader/Loader";
 import {useDispatch} from "react-redux";
-import {addCart} from "../../utils/store/slice/SportBuildSlice";
+import {addCart} from "../../utils/store/slice/sportBuildSlice";
 
 function Item() {
     const dispatch = useDispatch();

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './containers/App/App';
-import store from "./utils/store/SportBuildStore"
+import store from "./utils/store/store"
 import {Provider} from "react-redux";
 
 ReactDOM.render(
