@@ -36,7 +36,8 @@ function Register() {
     const dispatch = useDispatch();
     const history = useHistory();
     const signUp = (values) => {
-        dispatch(addUser(values))
+        // dispatch(addUser(values))
+        localStorage.setItem(values.email, values.password);
         dispatch(logged(true))
         history.push('/');
     };

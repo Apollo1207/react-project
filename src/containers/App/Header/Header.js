@@ -20,6 +20,7 @@ function Header() {
     const dispatch = useDispatch();
     const history = useHistory();
     const signOut = () => {
+        // localStorage.clear();
         dispatch(logged(false))
         history.push('/login');
     };
